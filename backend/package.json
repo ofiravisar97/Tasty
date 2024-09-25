@@ -1,0 +1,11 @@
+{
+  "name": "tasty-ties",
+  "version": "1.0.0",
+  "description": "A social media about food",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ofir avisar",
+  "license": "ISC"
+}
