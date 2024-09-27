@@ -1,8 +1,8 @@
 import useScreenSize from "../../hooks/utils/useScreenSize";
 import Searchbar from "../Search/Searchbar";
 import Menu from "./Menu/Menu";
-import { LARGE_WINDOW, MEDIUM_WINDOW } from "../../consts";
-import { RiMenuLine } from "react-icons/ri";
+import {  MEDIUM_WINDOW } from "../../consts";
+import UserAvatar from "../UI/UserAvatar";
 
 type Props = {
   openRecipeModal: () => void;
@@ -24,7 +24,7 @@ const Navbar = ({ openRecipeModal }: Props) => {
       {!isMobileLayout ? (
         <Menu openRecipeModal={openRecipeModal} />
       ) : (
-        <RiMenuLine size={32} className="mr-4 cursor-pointer" />
+        <UserAvatar />
       )}
     </div>
   );

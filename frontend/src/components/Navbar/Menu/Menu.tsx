@@ -24,13 +24,12 @@ const MenuItemLink = ({ to, icon }: MenuItemLinkProps) => {
 };
 
 type MenuItemButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  onClick: () => void;
   icon: ReactNode;
 };
 
-const MenuItemButton = ({ onClick, icon, ...props }: MenuItemButtonProps) => {
+const MenuItemButton = ({ icon, ...props }: MenuItemButtonProps) => {
   return (
-    <button {...props} type="button" onClick={onClick}>
+    <button {...props} type="button" >
       {icon}
     </button>
   );
@@ -50,7 +49,6 @@ const Menu = ({ openRecipeModal }: Props) => {
         className="px-4"
       />
       <MenuItemButton
-        onClick={() => {}}
         icon={<VscHeart className="text-4xl" />}
       />
       <MenuItemLink
