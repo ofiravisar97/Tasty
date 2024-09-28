@@ -25,13 +25,16 @@ const MenuItemLink = ({ to, icon }: MenuItemLinkProps) => {
 };
 
 type MenuItemButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  onClick: () => void;
   icon: ReactNode;
 };
 
-const MenuItemButton = ({ onClick, icon, ...props }: MenuItemButtonProps) => {
+const MenuItemButton = ({ icon, ...props }: MenuItemButtonProps) => {
   return (
+<<<<<<< HEAD
     <button {...props} type="button" onClick={onClick} className="px-8 lg:px-4">
+=======
+    <button {...props} type="button" >
+>>>>>>> ea269cc992ffb0bface49c01b9e0eb05344e848a
       {icon}
     </button>
   );
@@ -53,7 +56,6 @@ const Menu = ({ isBottom }: MenuProps) => {
         icon={<VscDiffAdded className="text-4xl" />}
       />
       <MenuItemButton
-        onClick={() => {}}
         icon={<VscHeart className="text-4xl" />}
       />
       <MenuItemLink
