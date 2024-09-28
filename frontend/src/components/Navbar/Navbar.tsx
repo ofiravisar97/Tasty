@@ -2,31 +2,28 @@ import useScreenSize from "../../hooks/utils/useScreenSize";
 import Searchbar from "../Search/Searchbar";
 import Menu from "./Menu/Menu";
 import { LARGE_WINDOW, MEDIUM_WINDOW } from "../../consts";
-import { RiMenuLine } from "react-icons/ri";
+import BottomNav from "./BottomNav/BottomNav";
+import UserAvatar from "../UI/UserAvatar";
 
-type Props = {
-  openRecipeModal: () => void;
-};
-
-const Navbar = ({ openRecipeModal }: Props) => {
+const Navbar = () => {
   const { width } = useScreenSize();
-
   const isMobileLayout = width < MEDIUM_WINDOW;
 
   return (
-    <div className="w-full h-[4rem] shadow-md gap-8 border-neutral-300 border-b-2 px-2 flex justify-between md:justify-around items-center">
-      {!isMobileLayout && (
+    <nav className="bg-white w-screen h-[4rem] shadow-md gap-8 z-10 border-neutral-200 border-b-1 px-2 flex justify-between md:justify-around items-center fixed">
+      {width >= LARGE_WINDOW && (
         <h2 className="text-pretty font-bold drop-shadow-lg text-3xl">
           TastyTies
         </h2>
       )}
       <Searchbar />
       {!isMobileLayout ? (
-        <Menu openRecipeModal={openRecipeModal} />
+        <Menu isBottom={false} />
       ) : (
-        <RiMenuLine size={32} className="mr-4 cursor-pointer" />
+        <UserAvatar size="small" variant="rounded" clickable="clickable" />
       )}
-    </div>
+      {isMobileLayout && <BottomNav />}
+    </nav>
   );
 };
 

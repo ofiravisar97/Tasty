@@ -2,6 +2,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 import { NavLink } from "react-router-dom";
 import { VscDiffAdded, VscBookmark, VscHome, VscHeart } from "react-icons/vsc";
 import UserAvatar from "../../UI/UserAvatar";
+import useNavigationContext from "../../../context/useNavigationContext";
 
 type MenuItemLinkProps = {
   to: string;
@@ -14,8 +15,8 @@ const MenuItemLink = ({ to, icon }: MenuItemLinkProps) => {
       to={to}
       className={({ isActive }) =>
         isActive
-          ? "border-b-4 border-primary h-full flex items-center px-4"
-          : "h-full px-4 flex items-center"
+          ? "border-b-4 border-primary h-full flex items-center px-8 lg:px-4"
+          : "h-full px-8 lg:px-4 flex items-center"
       }
     >
       {icon}
@@ -30,24 +31,26 @@ type MenuItemButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const MenuItemButton = ({ onClick, icon, ...props }: MenuItemButtonProps) => {
   return (
-    <button {...props} type="button" onClick={onClick}>
+    <button {...props} type="button" onClick={onClick} className="px-8 lg:px-4">
       {icon}
     </button>
   );
 };
 
-type Props = {
-  openRecipeModal: () => void;
+type MenuProps = {
+  isBottom: boolean;
 };
 
-const Menu = ({ openRecipeModal }: Props) => {
+const Menu = ({ isBottom }: MenuProps) => {
+  const { setAddRecipe, setProfileMenuOpen } = useNavigationContext();
   return (
     <nav className="h-full flex items-center justify-center">
       <MenuItemLink to="/" icon={<VscHome className="text-4xl" />} />
       <MenuItemButton
-        onClick={openRecipeModal}
+        onClick={() => {
+          setAddRecipe((prev) => !prev);
+        }}
         icon={<VscDiffAdded className="text-4xl" />}
-        className="px-4"
       />
       <MenuItemButton
         onClick={() => {}}
@@ -57,7 +60,16 @@ const Menu = ({ openRecipeModal }: Props) => {
         to="/bookmarks"
         icon={<VscBookmark className="text-4xl" />}
       />
-      <UserAvatar size="small" variant="rounded" clickable="clickable" />
+      {!isBottom && (
+        <MenuItemButton
+          onClick={() => {
+            setProfileMenuOpen((prev) => !prev);
+          }}
+          icon={
+            <UserAvatar size="small" variant="rounded" clickable="clickable" />
+          }
+        />
+      )}
     </nav>
   );
 };

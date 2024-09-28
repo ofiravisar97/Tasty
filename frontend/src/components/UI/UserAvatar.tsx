@@ -6,10 +6,10 @@ import placeholder from "../../assets/UserPlaceholder.svg";
 const avatarStyles = cva(["overflow-hidden border-2 border-primary"], {
   variants: {
     variant: {
-      rounded: "rounded-full aspect-square",
+      rounded: "rounded-full aspect-square max-w-[full]",
     },
     size: {
-      small: "size-10",
+      small: "min-w-[2.5rem]",
     },
     clickable: {
       default: "",
@@ -34,11 +34,14 @@ const UserAvatar = ({
   ...props
 }: Props) => {
   return (
-    <img
-      {...props}
-      src={src || placeholder}
-      className={cn(avatarStyles({ variant, size, clickable }), className)}
-    />
+    <div>
+      <img
+        {...props}
+        alt="User Profile Avatar"
+        src={src || placeholder}
+        className={cn(avatarStyles({ variant, size, clickable }), className)}
+      />
+    </div>
   );
 };
 

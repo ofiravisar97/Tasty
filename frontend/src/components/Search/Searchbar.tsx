@@ -6,7 +6,7 @@ const Searchbar = () => {
       <FaMagnifyingGlass className="absolute top-1/2 -translate-y-1/2 left-[0.5rem] text-neutral-300" />
       <input
         placeholder="Search anything..."
-        className="pl-[32px] py-1 h-full outline-none"
+        className="pl-[32px] py-1 h-full outline-none w-full"
       />
     </div>
   );

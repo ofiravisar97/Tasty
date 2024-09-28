@@ -8,7 +8,7 @@ type ModalProps = {
 const Modal = ({ children, onClose }: ModalProps) => {
   return (
     <div
-      className="bg-opacity-30 bg-black fixed top-0 left-0 w-screen h-screen"
+      className="bg-opacity-30 bg-black fixed top-0 left-0 w-screen h-screen z-20"
       onClick={onClose}
     >
       {children}
