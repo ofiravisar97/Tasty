@@ -30,11 +30,7 @@ type MenuItemButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const MenuItemButton = ({ icon, ...props }: MenuItemButtonProps) => {
   return (
-<<<<<<< HEAD
-    <button {...props} type="button" onClick={onClick} className="px-8 lg:px-4">
-=======
-    <button {...props} type="button" >
->>>>>>> ea269cc992ffb0bface49c01b9e0eb05344e848a
+    <button {...props} type="button" className="px-8 lg:px-4">
       {icon}
     </button>
   );
@@ -55,9 +51,7 @@ const Menu = ({ isBottom }: MenuProps) => {
         }}
         icon={<VscDiffAdded className="text-4xl" />}
       />
-      <MenuItemButton
-        icon={<VscHeart className="text-4xl" />}
-      />
+      <MenuItemButton icon={<VscHeart className="text-4xl" />} />
       <MenuItemLink
         to="/bookmarks"
         icon={<VscBookmark className="text-4xl" />}

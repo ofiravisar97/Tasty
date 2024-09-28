@@ -1,12 +1,8 @@
 import useScreenSize from "../../hooks/utils/useScreenSize";
 import Searchbar from "../Search/Searchbar";
 import Menu from "./Menu/Menu";
-<<<<<<< HEAD
 import { LARGE_WINDOW, MEDIUM_WINDOW } from "../../consts";
 import BottomNav from "./BottomNav/BottomNav";
-=======
-import {  MEDIUM_WINDOW } from "../../consts";
->>>>>>> ea269cc992ffb0bface49c01b9e0eb05344e848a
 import UserAvatar from "../UI/UserAvatar";
 
 const Navbar = () => {
@@ -24,11 +20,7 @@ const Navbar = () => {
       {!isMobileLayout ? (
         <Menu isBottom={false} />
       ) : (
-<<<<<<< HEAD
         <UserAvatar size="small" variant="rounded" clickable="clickable" />
-=======
-        <UserAvatar />
->>>>>>> ea269cc992ffb0bface49c01b9e0eb05344e848a
       )}
       {isMobileLayout && <BottomNav />}
     </nav>
