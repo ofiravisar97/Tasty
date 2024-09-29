@@ -4,7 +4,7 @@ import Recipe from "./Recipe";
 
 const Recipes = () => {
   return (
-    <section className="absolute w-[95%] bg-red-700 lg:w-[50%] left-1/2 -translate-x-1/2">
+    <section className="absolute h-fit w-[95%] px-2 lg:w-[50%] left-1/2 -translate-x-1/2">
       {RECIPES.map((recipe: RecipePostDataType) => (
         <Recipe recipe={recipe} />
       ))}
