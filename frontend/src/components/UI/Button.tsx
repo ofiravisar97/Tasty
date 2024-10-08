@@ -7,7 +7,8 @@ const buttonStyles = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary flex items-center justify-center",
+        default:
+          "bg-primary flex items-center justify-center text-white font-semibold",
         outline: "border border-primary bg-white text-primary",
       },
       size: {
